@@ -26,9 +26,6 @@ const server = http.createServer((req, res) => {
     case "/img/api.png":
       serveStaticFile(res, "/public/img/api.png", "image/png");
       break;
-    case "/500":
-      serveStaticFile(res, "/public/500.html", "image/png");
-      break;
     default:
       serveStaticFile(res, "/public/404.html", "text/html", 404);
       break;

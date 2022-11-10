@@ -10,6 +10,11 @@ app.get("/about", (req, res) => {
   res.type("text/plain");
   res.send("About Meadowlark Travel");
 });
+app.get("/about/*", (req, res) => {
+  res.type("text/plain");
+  res.send("About Subpages Meadowlark Travel");
+});
+
 // custom 404 page
 app.use((req, res) => {
   res.type("text/plain");
