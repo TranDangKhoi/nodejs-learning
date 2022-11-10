@@ -17,8 +17,11 @@ const server = http.createServer((req, res) => {
     case "":
       serveStaticFile(res, "/public/home.html", "text/html");
       break;
-    case "/about":
-      serveStaticFile(res, "/public/about.html", "text/html");
+    case "/blog":
+      serveStaticFile(res, "/public/blog.html", "text/html");
+      break;
+    case "/product":
+      serveStaticFile(res, "/public/product.html", "text/html");
       break;
     case "/img/logo.png":
       serveStaticFile(res, "/public/img/logo.png", "image/png");
