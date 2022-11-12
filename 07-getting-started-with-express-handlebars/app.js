@@ -1,8 +1,7 @@
 const express = require("express");
 const expressHandlebars = require("express-handlebars").engine;
 
-const fortune = require("./lib/fortune.js");
-
+const quotes = require("./lib/quotes.js");
 const app = express();
 
 // configure Handlebars view engine
@@ -21,7 +20,7 @@ app.use(express.static(__dirname + "/public"));
 app.get("/", (req, res) => res.render("home"));
 
 app.get("/about", (req, res) => {
-  res.render("about", { fortune: fortune.getFortune() });
+  res.render("about", { quotes: quotes.getQuotes() });
 });
 
 // custom 404 page

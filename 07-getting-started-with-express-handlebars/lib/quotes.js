@@ -1,4 +1,4 @@
-const fortuneCookies = [
+const quotes = [
   "Study now or you will regret later.",
   "Every great developer you know got there by solving problems they were unqualified to solve until they actually did it.",
   "It’s hard enough to find an error in your code when you’re looking for it; it’s even harder when you’ve assumed your code is error-free.",
@@ -6,7 +6,7 @@ const fortuneCookies = [
   "One of my most productive days was throwing away 1000 lines of code.",
 ];
 
-exports.getFortune = () => {
-  const idx = Math.floor(Math.random() * fortuneCookies.length);
-  return fortuneCookies[idx];
+exports.getQuotes = () => {
+  const idx = Math.floor(Math.random() * quotes.length);
+  return quotes[idx];
 };
