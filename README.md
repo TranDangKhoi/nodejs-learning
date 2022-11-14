@@ -57,16 +57,16 @@
 
   - Hai cái `req.query` và `req.params` này cũng có đôi chút sự khác nhau, `req.query` sẽ lấy ra query param nằm trong URL, tức là những thứ bạn truyền vào sau dấu "?", ví dụ:
 
-  - Nếu ta code bằng `req.params` như ở trên thì để lấy ra username ta sẽ có như sau:
+  - Nếu ta code bằng `req.params` như ở trên thì để lấy ra username ta sẽ có các trường hợp như sau:
 
-    - Trường hợp sử dụng `req.params`:
+    - **Trường hợp 1:** Sử dụng `req.params`:
     - `req.params` sẽ được sử dụng khi đường dẫn có dạng như sau:
       `https://localhost:3000/user/Khoi`
 
     - Log ra param, ta được kết quả như sau:
       `{username : "Khoi"}`
 
-    - Trường hợp sử dụng `req.query`:
+    - **Trường hợp 2:** Sử dụng `req.query`:
     - `req.query` sẽ được sử dụng khi đường dẫn có dạng như sau:
       `https://localhost:3000/user?username=Khoi`
 
