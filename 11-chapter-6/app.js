@@ -37,6 +37,8 @@ app.get("/greeting", (req, res) => {
   });
 });
 
+app.get("/no-layout", (req, res) => res.render("no-layout", { layout: null }));
+
 app.listen(port, () => {
   console.log(`Server is running at ${port}`);
 });
