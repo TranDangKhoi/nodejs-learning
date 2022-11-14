@@ -38,7 +38,9 @@ app.get("/greeting", (req, res) => {
 });
 
 app.get("/no-layout", (req, res) => res.render("no-layout", { layout: null }));
-
+app.get("/custom-layout", (req, res) => {
+  res.render("custom-layout", { layout: "custom" });
+});
 app.listen(port, () => {
   console.log(`Server is running at ${port}`);
 });
