@@ -40,7 +40,8 @@
   });
   ```
 
-  - Khi vào đường dẫn `/user/name1`, sẽ show ra `Hello! My name is name1`, tương tự với `/user/name2` và `/user/name3`. Vậy giờ nếu ta truy cập vào `/user/name4`, thì nó có hiển thị ra màn hình `Hello! My name is name4 ` không?? Đáp án là không làm mà đòi có ăn thì ... Ở đây, ta chưa định nghĩa và xử lý cho route này nên chắc chắn kết quả sẽ là: ![Ảnh](https://i.ibb.co/0FDjwSY/image.png)
+  - Khi vào đường dẫn `/user/name1`, sẽ show ra `Hello! My name is name1`, tương tự với `/user/name2` và `/user/name3`. Vậy giờ nếu ta truy cập vào `/user/name4`, thì nó có hiển thị ra màn hình `Hello! My name is name4 ` không?? Đáp án là không làm mà đòi có ăn thì ... Ở đây, ta chưa định nghĩa và xử lý cho route này nên chắc chắn kết quả sẽ là:
+    <br>![Ảnh](https://i.ibb.co/0FDjwSY/image.png)
 
   - Vậy bây giờ chả nhẽ nếu muốn làm thêm cả user4, user5, user6, .... user1000 thì ta cũng viết hơn 1000 dòng code tương ứng cho mỗi routes ? Đương nhiên là không ròy, Express đã cung cấp cho chúng ta Route parameters, hay bây giờ người ta hay gọi là slug á. Slug sử dụng như nào thì nhìn vào đây:
 
