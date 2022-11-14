@@ -53,7 +53,7 @@
 
   - Ở đây thì :username chính là slug đóa >.< Bây giờ khi truy cập vào địa chỉ `/user/...` với một username bất kì thì ta có thể show ra tên tương ứng rồi
 
-- req.query: chứa các tham số truy vấn trong đường dẫn URL `(nằm sau dấu ?)`
+- req.query: chứa các tham số truy vấn trong đường dẫn URL `(nằm sau dấu ? và tiếp sau đó là các dấu &)`, thường có format như sau: `http://localhost:3000/users?username=Khoi&userid=2`
 
   - Hai cái `req.query` và `req.params` này cũng có đôi chút sự khác nhau, `req.query` sẽ lấy ra query param nằm trong URL, tức là những thứ bạn truyền vào sau dấu "?", ví dụ:
 
