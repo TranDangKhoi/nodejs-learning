@@ -1,10 +1,11 @@
 const express = require("express");
 const expbs = require("express-handlebars").engine;
+const cookieParser = require("cookie-parser");
+const session = require("express-session");
+const catNames = require("cat-names");
 const port = 3000;
 const app = express();
 const bodyParser = require("body-parser");
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 app.engine(
   "handlebars",
   expbs({
@@ -14,12 +15,32 @@ app.engine(
 
 app.set("view engine", "handlebars");
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+app.use(cookieParser());
+
+app.use(
+  session({ resave: false, saveUninitialized: false, secret: "keyboard cat" })
+);
 app.get("/headers", (req, res) => {
   res.type("text/plain");
   const headers = Object.entries(req.headers).map(
     ([key, value]) => `${key}: ${value}`
   );
   res.send(headers.join("\n"));
+});
+
+// Generate random things
+
+app.get("/set-random-userid", (req, res) => {
+  res.cookie("userid", (Math.random() * 10000).toFixed(0));
+  res.redirect("/greeting");
+});
+
+app.get("/set-random-username", (req, res) => {
+  req.session.username = catNames.random();
+  res.redirect("/greeting");
 });
 
 app.get("/", (req, res) => {
@@ -38,7 +59,7 @@ app.get("/greeting", (req, res) => {
     username: req.session.username,
   });
 });
-
+// Layout
 app.get("/no-layout", (req, res) => res.render("no-layout", { layout: null }));
 
 app.get("/custom-layout", (req, res) => {
