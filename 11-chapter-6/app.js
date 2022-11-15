@@ -3,8 +3,8 @@ const expbs = require("express-handlebars").engine;
 const port = 3000;
 const app = express();
 const bodyParser = require("body-parser");
-const e = require("express");
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.engine(
   "handlebars",
   expbs({
@@ -54,9 +54,35 @@ app.get("/contact", (req, res) => {
 });
 
 app.post("/contact", (req, res) => {
-  console.log(`received contact from ${req.body.name}
-  <${req.body.email}>`);
+  console.log(`received contact from ${req.body.name}<${req.body.email}>`);
   res.redirect(303, "thank-you");
+});
+app.get("/robust-contact", (req, res) => {
+  res.render("robust-contact");
+});
+app.post("/robust-contact", (req, res) => {
+  try {
+    // here's where we would try to save contact to database or other
+    // persistence mechanism...for now, we'll just simulate an error
+    if (req.body.simulateError) throw new Error("error saving contact!");
+    console.log(`contact from ${req.body.name} <${req.body.email}>`);
+    res.format({
+      "text/html": () => res.redirect(303, "/thank-you"),
+      "application/json": () => res.json({ success: true }),
+    });
+  } catch (err) {
+    // here's where we would handle any persistence failures
+    console.error(
+      `error processing contact from ${req.body.name} ` + `<${req.body.email}>`
+    );
+    res.format({
+      "text/html": () => res.redirect(303, "/errors"),
+      "application/json": () =>
+        res.status(500).json({
+          error: "error saving contact information",
+        }),
+    });
+  }
 });
 
 app.use((req, res) => res.status(404).render("404"));
