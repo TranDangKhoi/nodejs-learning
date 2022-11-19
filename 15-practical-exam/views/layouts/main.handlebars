@@ -1,0 +1,62 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to KhoiTek</title>
+    <script
+      src="https://kit.fontawesome.com/5e5aa9c9c8.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="header-hamburger-toggle">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+      <div class="header-logo">
+        <img src="../images/khoitek.png" alt="Logo" class="header-icon" />
+      </div>
+      <div class="header-invin-flex">
+        <p>hello</p>
+      </div>
+      <div class="header-navigation">
+        <ul class="header-navigation-list">
+          <li class="header-navigation-item">News</li>
+          <li class="header-navigation-item">Contact us</li>
+          <li class="header-navigation-item">FAQ</li>
+          <li
+            class="header-navigation-item header-navigation-item--divider"
+          ></li>
+          <li class="header-navigation-item">
+            <ion-icon name="search-outline"></ion-icon>
+            <form class="header-navigation-form" autocomplete="off">
+              <div class="triangle"></div>
+              <div class="header-navigation-form-find">
+                <input
+                  type="search"
+                  for="search"
+                  class="header-navigation-form-input"
+                  placeholder="What do you want to find?"
+                />
+                <ion-icon name="search-outline"></ion-icon>
+              </div>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="container">
+      {{{body}}}
+    </div>
+  </body>
+</html>
